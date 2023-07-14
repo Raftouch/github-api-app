@@ -4,4 +4,6 @@
 - [x] create store
 - [x] fetch github api
 - [x] add models (transformed from json)
-- [ ] 
+- [x] create search functionality
+- [x] customize hook to delay search results
+- [ ]
