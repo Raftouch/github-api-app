@@ -4,14 +4,15 @@ import { useDebounce } from '../hooks/debounce'
 
 export default function HomePage() {
   const [search, setSearch] = useState('')
+  const [dropdown, setDropdown] = useState(false)
   const debounced = useDebounce(search)
   const { isLoading, isError, data } = useSearchUsersQuery(debounced, {
-    skip: debounced.length < 3
+    skip: debounced.length < 3,
   })
 
   useEffect(() => {
-    console.log(debounced)
-  }, [debounced])
+    setDropdown(debounced.length > 3 && data?.length > 0)
+  }, [debounced, data])
 
   return (
     <div className="pt-28 flex justify-center mx-auto h-screen w-screen">
@@ -27,12 +28,20 @@ export default function HomePage() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <div className="absolute top-[40px] left-0 right-0 max-h-[200px] shadow-md bg-white">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum
-          corrupti quidem laborum culpa, nihil distinctio optio a quae? Numquam
-          quos eaque dicta ipsam velit quae explicabo maiores odit! Reiciendis,
-          consequuntur.
-        </div>
+
+        {dropdown && (
+          <ul className="absolute list-none top-[40px] left-0 right-0 max-h-[200px] overflow-y-scroll shadow-md bg-white">
+            {isLoading && <p className="text-center">Loading...</p>}
+            {data?.map((user) => (
+              <li
+                className="py-2 px-4 hover:bg-slate-900 hover:text-slate-100 transition-colors cursor-pointer"
+                key={user.id}
+              >
+                {user.login}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   )
