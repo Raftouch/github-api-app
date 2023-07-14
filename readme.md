@@ -1,0 +1,7 @@
+- [x] initial setup
+- [x] routing
+- [x] create pages, components
+- [x] create store
+- [x] fetch github api
+- [x] add models (transformed from json)
+- [ ] 

@@ -1,5 +1,5 @@
 export default function FavouritesPage() {
   return (
-    <div>FavouritesPage</div>
+    <div className="pt-28">FavouritesPage</div>
   )
 }
