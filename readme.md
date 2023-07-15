@@ -3,7 +3,11 @@
 - [x] create pages, components
 - [x] create store
 - [x] fetch github api
-- [x] add models (transformed from json)
+- [x] add user models (transformed from json)
 - [x] create search functionality
 - [x] customize hook to delay search results
+- [x] fix dropdown
+- [x] refetchOnFocus
+- [x] add repos models (transformed from json)
+- [x] fetch repos
 - [ ]
