@@ -59,7 +59,9 @@ export default function HomePage() {
           {areReposLoading && (
             <p className="text-center">Repos are loading...</p>
           )}
-          {repos?.map(repo => <RepoCard repo={repo} key={repo.id} />)}
+          {repos?.map((repo) => (
+            <RepoCard repo={repo} key={repo.id} />
+          ))}
         </div>
       </div>
     </div>
